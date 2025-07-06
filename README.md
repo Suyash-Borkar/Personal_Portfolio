@@ -5,7 +5,6 @@ Welcome to my personal developer portfolio website built with **React**, **Tailw
 ## 🌐 Live Demo
 
 👉 [View Live Portfolio](https://your-live-link.vercel.app) 
-*(Replace with your actual live URL)*
 
 ---
 

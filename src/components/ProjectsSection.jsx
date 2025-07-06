@@ -19,8 +19,8 @@ const projects = [
       "My personal developer portfolio built with React and TailwindCSS.",
     image: "/projects/project2.jpeg",
     tags: ["React", "TailwindCSS"],
-    demoUrl: "https://render.com",
-    githubUrl: "https://github.com/Suyash-Borkar",
+    demoUrl: "https://personal-portfolio-alpha-three-16.vercel.app/",
+    githubUrl: "https://github.com/Suyash-Borkar/Personal_Portfolio",
     status: "live",
   },
   {
