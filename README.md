@@ -10,8 +10,8 @@ Welcome to my personal developer portfolio website built with **React**, **Tailw
 
 ## 🖼️ Screenshots
 
-![Hero Section Screenshot](./screenshots/hero-section.jpeg)
-![Projects Section Screenshot](./screenshots/projects-section.jpeg)
+![Hero Section Screenshot](./screenshots/hero-section.png)
+![Projects Section Screenshot](./screenshots/projects-section.png)
 
 ---
 
@@ -21,7 +21,6 @@ Welcome to my personal developer portfolio website built with **React**, **Tailw
 - **Tailwind CSS**
 - **Lucide Icons**
 - **Typewriter Effect (react-simple-typewriter)**
-- **EmailJS** *(or planned alternative)*
 - **Vite**
 
 ---
