@@ -19,6 +19,7 @@
   --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
   --animate-meteor: meteor 5s linear infinite;
 
+
   @keyframes float {
     0%,
     100% {
@@ -60,6 +61,12 @@
       opacity: 0;
     }
   }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
 }
 
 @layer base {
@@ -98,6 +105,13 @@
   body {
     @apply bg-background text-foreground transition-colors duration-300;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  .cursor {
+  display: inline-block;
+  width: 1px;
+  background-color: currentColor;
+  animation: blink 1s step-end infinite;
   }
 }
 
@@ -160,3 +174,4 @@
   padding: 0;
   text-align: center;
 }
+

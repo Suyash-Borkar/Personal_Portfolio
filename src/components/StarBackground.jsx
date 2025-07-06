@@ -6,7 +6,11 @@ export const StarBackground = () => {
 
   useEffect(() => {
     generateStars();
-    generateMeteors();
+
+    // Delay meteor rendering by 1 second to prevent flash/dash
+    const meteorTimer = setTimeout(() => {
+      generateMeteors();
+    }, 1000);
 
     const handleResize = () => {
       generateStars();
@@ -14,9 +18,13 @@ export const StarBackground = () => {
     };
 
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      clearTimeout(meteorTimer);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
+  // Generate stars based on screen area
   const generateStars = () => {
     const count = Math.floor(window.innerWidth * window.innerHeight / 10000);
     const generated = Array.from({ length: count }, (_, i) => ({
@@ -30,6 +38,7 @@ export const StarBackground = () => {
     setStars(generated);
   };
 
+  // Generate meteors with delay/position/size
   const generateMeteors = () => {
     const count = 6;
     const generated = Array.from({ length: count }, (_, i) => ({
@@ -37,7 +46,7 @@ export const StarBackground = () => {
       size: Math.random() * 2 + 1,
       x: Math.random() * 100,
       y: Math.random() * 20,
-      delay: Math.random() * 15,
+      delay: Math.random() * 10 + 1, // start falling 1-11s
       animationDuration: Math.random() * 3 + 3,
     }));
     setMeteors(generated);
@@ -75,6 +84,8 @@ export const StarBackground = () => {
             animationDelay: `${meteor.delay}s`,
             animationDuration: `${meteor.animationDuration}s`,
             position: "absolute",
+            opacity: 0, // initial opacity
+            animationFillMode: "forwards",
           }}
         />
       ))}

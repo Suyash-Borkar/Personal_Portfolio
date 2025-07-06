@@ -34,7 +34,7 @@ export const AboutMe = () => {
                 Get In Touch
               </a>
               <a
-                href="/Suyash_Borkar_Resume.pdf" // Replace with actual file path
+                href="./pdf/Suyash_Borkar_Resume.pdf"
                 download
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
@@ -44,7 +44,7 @@ export const AboutMe = () => {
           </div>
 
           {/* Skill Cards */}
-          <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-1 gap-6">
             <Card
               Icon={Code}
               title="Web Development"
