@@ -30,7 +30,7 @@ export const MobileMenu = ({ isOpen, navItems, activeSection, closeMenu }) => {
         ))}
 
         {/* ✅ Theme toggle for mobile */}
-        <div className="mt-8 md:hidden">
+        <div className="mt-10 md:hidden">
           <ThemeToggle />
         </div>
       </div>

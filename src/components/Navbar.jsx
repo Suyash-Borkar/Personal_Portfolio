@@ -35,7 +35,6 @@ export const Navbar = () => {
       },
       { threshold: 0.6 }
     );
-
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
@@ -53,8 +52,9 @@ export const Navbar = () => {
           : "py-5"
       )}
     >
-      <div className="container flex items-center justify-between">
-        {/* Logo + Theme toggle (desktop only) */}
+      {/* ✅ Container wraps the entire navbar content */}
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        {/* Left: Logo */}
         <div className="flex items-center space-x-4">
           <a
             href="#hero"
@@ -63,31 +63,33 @@ export const Navbar = () => {
             <span className="text-glow text-foreground">Suyash Borkar</span>
             <span className="ml-1">Portfolio</span>
           </a>
+        </div>
 
-          <div className="hidden md:block">
-            <ThemeToggle />
+        {/* Right: Desktop Nav + Theme Toggle */}
+        <div className="hidden md:flex items-center space-x-6">
+          {/* Desktop Navigation */}
+          <div className="flex space-x-6">
+            {navItems.map((item, key) => (
+              <a
+                key={key}
+                href={item.href}
+                className={cn(
+                  "transition-colors duration-300 hover:text-primary hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-primary",
+                  activeSection === item.href.replace("#", "")
+                    ? "text-primary font-semibold"
+                    : "text-foreground/80"
+                )}
+              >
+                {item.name}
+              </a>
+            ))}
           </div>
+
+          {/* Desktop Theme Toggle */}
+          <ThemeToggle />
         </div>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex space-x-8">
-          {navItems.map((item, key) => (
-            <a
-              key={key}
-              href={item.href}
-              className={cn(
-                "transition-colors duration-300 hover:text-primary hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-primary",
-                activeSection === item.href.replace("#", "")
-                  ? "text-primary font-semibold"
-                  : "text-foreground/80"
-              )}
-            >
-              {item.name}
-            </a>
-          ))}
-        </div>
-
-        {/* Mobile menu toggle */}
+        {/* Mobile Menu Toggle */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
           className="md:hidden p-2 text-foreground z-50 focus-visible:outline-2 focus-visible:outline-primary"
